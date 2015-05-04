@@ -11,7 +11,7 @@ PKGEXT=.pkg.tar
 
 pkgname=hon
 pkgver=3.6.4.1
-pkgrel=3
+pkgrel=2
 pkgdesc="Heroes of Newerth is a Real Time Strategy game heavily influcenced by DotA"
 arch=('i686' 'x86_64')
 url="http://www.heroesofnewerth.com/"
@@ -52,7 +52,7 @@ Continue?"
     mkdir -p "${pkgdir}/usr/share/licenses/${pkgname}"
 
     # Extract Files
-    sh -c "unzip \"${srcdir}/HoNClient-${pkgver}.sh\" data/* -d \"${pkgdir}/opt/\"; true"
+    sh -c "unzip \"${srcdir}/HoNClient-${pkgver}.sh\" \"data/*\" -d \"${pkgdir}/opt/\"; true"    
     mv "${pkgdir}"/opt/{data,hon}
 
     # Install License
