@@ -6,19 +6,21 @@ _name1_=xorg
 _name2_=edit
 pkgname=${_name1_}-${_name2_}
 pkgver=08.08.06
-pkgrel=1
+pkgrel=2
 pkgdesc="A GUI editor for the X.Org configuration file"
 arch=("i686" "x86_64")
 url="http://www.deesaster.org/progxorg.php"
 license=("GPL3")
 depends=("wxgtk")
 options=(!emptydirs)
-source=(http://downloads.sourceforge.net/${pkgname}/${pkgname}-${pkgver}_src.tar.bz2)
-md5sums=('ab0bee4ecdc3db19f7bf357499bdaa7a')
+source=(http://downloads.sourceforge.net/${pkgname}/${pkgname}-${pkgver}_src.tar.bz2 compatibility.patch ${pkgname}.desktop)
+md5sums=('ab0bee4ecdc3db19f7bf357499bdaa7a' '443c403b3bdf0421582a0a430ab7cc85' 'e9e3e1d8b55794a36fbba3a98a762704')
 
 build() {
   cd "${srcdir}"/${pkgname}-${pkgver}
 
+  patch -p0 < "${srcdir}"/compatibility.patch
+  
   make
 }
 
@@ -33,5 +35,5 @@ package() {
   ln -s /usr/lib/${_name1_}${_name2_}/${pkgname} "${pkgdir}"/usr/bin/
 
   # Desktop
-  install -D ./${pkgname}.desktop "${pkgdir}"/usr/share/applications/${pkgname}.desktop
+  install -D "${srcdir}"/${pkgname}.desktop "${pkgdir}"/usr/share/applications/${pkgname}.desktop
 }
