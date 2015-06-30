@@ -3,12 +3,12 @@
 
 pkgname=gedit-scala
 pkgver=1
-pkgrel=2
+pkgrel=3
 pkgdesc="Scala Syntax Highlighting for gedit"
 arch=('any')
 url="https://github.com/scala/scala-tool-support/tree/master/tool-support/gedit"
 license=('custom')
-depends=('gtksourceview3')
+conflicts=('gtksourceview3')
 source=(https://raw.githubusercontent.com/scala/scala-tool-support/master/tool-support/gedit/scala.lang)
 md5sums=('92242e300d3ce05da00beebca45a756f')
 
