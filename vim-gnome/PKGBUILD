@@ -31,6 +31,7 @@ build() {
   
   # for other packages you can flip disable/enable (if you modify this, modify dependencies as well)
   
+  # some plugins require python, e.g. merlin, so let it be
   ./configure \
     --prefix=/usr \
     --localstatedir=/var/lib/vim \
@@ -44,11 +45,11 @@ build() {
     --enable-cscope \
     --disable-netbeans \
     --disable-perlinterp \
-    --disable-pythoninterp \
+    --enable-pythoninterp \
     --disable-python3interp \
     --disable-rubyinterp \
     --disable-luainterp \
-    --disable-mzschemeinterp
+    --enable-mzschemeinterp
    
   # these flags are in the Ubuntu package
   #LDFLAGS="-Wl,-Bsymbolic-functions -Wl,-z,relro" CPPFLAGS="" CFLAGS="-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security"
