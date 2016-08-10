@@ -3,8 +3,8 @@
 # Contributor: totoloco <totoloco@ushcompu.com.ar>
 
 pkgname=covergloobus
-pkgver=1.6
-pkgrel=2
+pkgver=1.7
+pkgrel=1
 pkgdesc="A standalone application to see what is playing in your favourite music player"
 arch=(any)
 url=https://launchpad.net/$pkgname
